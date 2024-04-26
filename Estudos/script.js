@@ -11,3 +11,5 @@ minhaClasse.innerHTML = "<strong>Novo conteúdo para minha classe.</strong>";
 h1.textContent = "Novo conteúdo para meu H1.";
 
 meuDiv2.style.backgroundColor = "lightblue";
+minhaClasse2.style.fontSize = "20px";
+h1.style.color = "red";
