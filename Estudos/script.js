@@ -9,3 +9,5 @@ let h1_2 = document.querySelector("h1");
 meuDiv.textContent = "Novo conteúdo para meu div.";
 minhaClasse.innerHTML = "<strong>Novo conteúdo para minha classe.</strong>";
 h1.textContent = "Novo conteúdo para meu H1.";
+
+meuDiv2.style.backgroundColor = "lightblue";
