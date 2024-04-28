@@ -3,3 +3,4 @@ function saudacao(nome) {
 }
 saudacao("Maria");
 saudacao("José");
+saudacao("Júlia");
