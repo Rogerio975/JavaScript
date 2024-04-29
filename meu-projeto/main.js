@@ -8,8 +8,8 @@ function addTask(e) {
     e.preventDefault(); // prevenindo o comportamento padrão do form
 
     if (taskInput.value.trim()) {
-        // se há algo escrito no input
-        // criação do elemento li
+        //se há algo escrito no input
+        //criação do elemento li
         const li = document.createElement('li');
         li.textContent = taskInput.value;
 
