@@ -5,7 +5,7 @@ const taskList = document.querySelector('#task-list');
 
 //Função para adicionar tarefa
 function addTask(e) {
-    e.preventDefault(); // prevenindo o comportamento padrão do form
+    e.preventDefault(); //prevenindo o comportamento padrão do form
 
     if (taskInput.value.trim()) {
         //se há algo escrito no input
