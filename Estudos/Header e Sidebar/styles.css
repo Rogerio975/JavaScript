@@ -31,3 +31,14 @@ body {
   h2 {
     text-align: center;
   }
+
+  footer {
+  position: fixed; /* Fix the footer at the bottom */
+  bottom: 0; /* Set the bottom position to 0 */
+  width: 100%; /* Make the footer span the full width of the page */
+  text-align: center; /* Center the content within the footer */
+  padding: 10px 0; /* Add some padding for visual spacing */
+  background-color: #333; /* Set a background color */
+  margin-left: 220px;
+  color: #fff
+  }
