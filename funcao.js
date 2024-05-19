@@ -1,3 +1,4 @@
+// Function Declaration
 function saudacao(nome) {
     console.log("Olá, " + nome + "!");
 }

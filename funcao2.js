@@ -1,3 +1,4 @@
+// Function Expression
 var square = function (numero) {
     return numero * numero;
 };
