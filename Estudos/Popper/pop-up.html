@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pop-up Example</title>
+  <!-- Inclua o Popper.js -->
+  <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <style>
+    /* Estilo para o pop-up */
+    .popup {
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 9999;
+      display: none; /* O pop-up está escondido por padrão */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Botão para abrir o pop-up -->
+<button id="popup-trigger">Abrir Pop-up</button>
+
+<!-- Elemento que será o pop-up -->
+<div id="popup-element" class="popup">
+  Este é um pop-up simples!
+</div>
+
+<script>
+  // Selecione os elementos
+  const trigger = document.getElementById('popup-trigger');
+  const popup = document.getElementById('popup-element');
+
+  // Crie uma instância Popper.js
+  const instance = Popper.createPopper(trigger, popup, {
+    placement: 'bottom', // Define a posição do pop-up em relação ao elemento de referência
+  });
+
+  // Adicione um evento de clique para mostrar ou esconder o pop-up
+  trigger.addEventListener('click', () => {
+    // Alterna a visibilidade do pop-up
+    if (popup.style.display === 'none') {
+      popup.style.display = 'block';
+      instance.update(); // Atualiza a posição do pop-up
+    } else {
+      popup.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

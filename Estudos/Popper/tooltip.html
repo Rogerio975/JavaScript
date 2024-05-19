@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip Example</title>
+  <!-- Inclua o Popper.js -->
+  <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <style>
+    /* Estilo para o tooltip */
+    .tooltip {
+      position: absolute;
+      background-color: #333;
+      color: white;
+      padding: 5px;
+      border-radius: 4px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Elemento que terá o tooltip -->
+<button id="tooltip-target">Passe o mouse aqui</button>
+
+<!-- Elemento que será o tooltip -->
+<div id="tooltip-element" class="tooltip">
+  Este é um tooltip simples!
+</div>
+
+<script>
+  // Selecione os elementos
+  const target = document.getElementById('tooltip-target');
+  const tooltip = document.getElementById('tooltip-element');
+
+  // Crie uma instância Popper.js
+  const instance = Popper.createPopper(target, tooltip, {
+    placement: 'top' // Define a posição do tooltip em relação ao elemento de referência
+  });
+
+  // Adicione um evento de passar o mouse para mostrar o tooltip
+  target.addEventListener('mouseenter', () => {
+    tooltip.style.visibility = 'visible';
+    instance.update(); // Atualiza a posição do tooltip
+  });
+
+  // Adicione um evento de sair o mouse para esconder o tooltip
+  target.addEventListener('mouseleave', () => {
+    tooltip.style.visibility = 'hidden';
+  });
+</script>
+
+</body>
+</html>
