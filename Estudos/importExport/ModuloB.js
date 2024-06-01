@@ -1,3 +1,3 @@
-import variavel from "/moduloA";
+import ModuloA from './moduloA.js';
 
-console.log(variavel);
+console.log(ModuloA);
