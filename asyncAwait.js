@@ -5,4 +5,4 @@ async function buscarDados() {
     console.log(dados);
   }
   
-  buscarDados();  
+  buscarDados();
