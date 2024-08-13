@@ -1,0 +1,14 @@
+{
+  "name": "teste",
+  "version": "1.0.0",
+  "description": "Testando um pacote em Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rogerio",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^10.0.0"
+  }
+}
