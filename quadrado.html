@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cáculo do Quadrado</title>
+</head>
+<body>
+  <script>
+    function calcularQuadrado(lado) {
+    // Calcula a área: lado * lado
+    const area = lado * lado;
+  
+    // Calcula o perímetro: 4 * lado
+    const perimetro = 4 * lado;
+  
+    // Retorna um objeto com os resultados
+    return { area, perimetro };
+  }
+  
+  // Solicita o valor do lado ao usuário
+  const lado = parseFloat(prompt("Digite o valor do lado do quadrado:"));
+  
+  // Chama a função e armazena os resultados
+  const resultados = calcularQuadrado(lado);
+  
+  // Exibe os resultados
+  console.log("A área do quadrado é:", resultados.area);
+  console.log("O perímetro do quadrado é:", resultados.perimetro);
+  </script>  
+</body>
+</html>
