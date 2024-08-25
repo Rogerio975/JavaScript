@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo da Retângulo</title>
+</head>
+<body>
+    <script>
+        function calcularRetangulo(base, altura) {
+  // Calcula a área
+  const area = base * altura;
+
+  // Calcula o perímetro
+  const perimetro = 2 * (base + altura);
+
+  // Retorna um objeto com os resultados
+  return { area, perimetro };
+}
+
+// Solicita os valores ao usuário
+const base = parseFloat(prompt("Digite o valor da base do retângulo:"));
+const altura = parseFloat(prompt("Digite o valor da altura do retângulo:"));
+
+// Chama a função e armazena os resultados
+const resultados = calcularRetangulo(base, altura);
+
+// Exibe os resultados
+console.log("A área do retângulo é:", resultados.area);
+console.log("O perímetro do retângulo é:", resultados.perimetro);
+    </script>
+</body>
+</html>
