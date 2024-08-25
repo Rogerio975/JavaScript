@@ -24,36 +24,36 @@
 
         function validarCPF(cpf) {
             pf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
-    if (cpf.length !== 11) {
-        return false;
+        if (cpf.length !== 11) {
+            return false;
+        }
+
+        // Verifica os dígitos verificadores
+        const somaPrimeiroDigito = cpf
+            .slice(0, 9)
+            .split('')
+            .reduce((acc, digit, index) => acc + parseInt(digit) * (10 - index), 0);
+        const primeiroDigitoVerificador = (somaPrimeiroDigito * 10) % 11;
+
+        const somaSegundoDigito = cpf
+            .slice(0, 10)
+            .split('')
+            .reduce((acc, digit, index) => acc + parseInt(digit) * (11 - index), 0);
+        const segundoDigitoVerificador = (somaSegundoDigito * 10) % 11;
+
+        return (
+            primeiroDigitoVerificador === parseInt(cpf[9]) &&
+            segundoDigitoVerificador === parseInt(cpf[10])
+        );
     }
 
-    // Verifica os dígitos verificadores
-    const somaPrimeiroDigito = cpf
-        .slice(0, 9)
-        .split('')
-        .reduce((acc, digit, index) => acc + parseInt(digit) * (10 - index), 0);
-    const primeiroDigitoVerificador = (somaPrimeiroDigito * 10) % 11;
-
-    const somaSegundoDigito = cpf
-        .slice(0, 10)
-        .split('')
-        .reduce((acc, digit, index) => acc + parseInt(digit) * (11 - index), 0);
-    const segundoDigitoVerificador = (somaSegundoDigito * 10) % 11;
-
-    return (
-        primeiroDigitoVerificador === parseInt(cpf[9]) &&
-        segundoDigitoVerificador === parseInt(cpf[10])
-    );
-}
-
-// Exemplo de uso:
-const cpfDigitado = '123.456.789-09'; // Insira o CPF aqui
-if (validarCPF(cpfDigitado)) {
-    console.log('CPF válido!');
-} else {
-    console.log('CPF inválido!');
-}
+        // Exemplo de uso:
+        const cpfDigitado = '123.456.789-09'; // Insira o CPF aqui
+        if (validarCPF(cpfDigitado)) {
+            console.log('CPF válido!');
+        } else {
+            console.log('CPF inválido!');
+        }
     </script>
 </body>
 </html>
