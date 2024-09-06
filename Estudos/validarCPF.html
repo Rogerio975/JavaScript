@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de CPF</title>
+</head>
+<body>
+    <form>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" placeholder="Digite o CPF" required>
+        <button type="button" onclick="validar()">Validar</button>
+    </form>
+
+    <script>
+        function validar() {
+            const cpf = document.getElementById('cpf').value;
+            if (validarCPF(cpf)) {
+                alert(`O CPF ${cpf} é válido!`);
+            } else {
+                alert(`O CPF ${cpf} não é válido!`);
+            }
+        }
+
+        function validarCPF(cpf) {
+            pf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
+        if (cpf.length !== 11) {
+            return false;
+        }
+
+        // Verifica os dígitos verificadores
+        const somaPrimeiroDigito = cpf
+            .slice(0, 9)
+            .split('')
+            .reduce((acc, digit, index) => acc + parseInt(digit) * (10 - index), 0);
+        const primeiroDigitoVerificador = (somaPrimeiroDigito * 10) % 11;
+
+        const somaSegundoDigito = cpf
+            .slice(0, 10)
+            .split('')
+            .reduce((acc, digit, index) => acc + parseInt(digit) * (11 - index), 0);
+        const segundoDigitoVerificador = (somaSegundoDigito * 10) % 11;
+
+        return (
+            primeiroDigitoVerificador === parseInt(cpf[9]) &&
+            segundoDigitoVerificador === parseInt(cpf[10])
+        );
+    }
+
+        // Exemplo de uso:
+        const cpfDigitado = '123.456.789-09'; // Insira o CPF aqui
+        if (validarCPF(cpfDigitado)) {
+            console.log('CPF válido!');
+        } else {
+            console.log('CPF inválido!');
+        }
+    </script>
+</body>
+</html>
