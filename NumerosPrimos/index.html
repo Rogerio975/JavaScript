@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Números Primos</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script>
+        // Função para verificar se um número é primo
+        function ePrimo(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        // Função para gerar e exibir os números primos
+        function gerarPrimos() {
+            // Limpa as mensagens e a saída anterior
+            document.getElementById('mensagemErro').innerHTML = '';
+            document.getElementById('saida').innerHTML = '';
+            // Obter o valor inserido pelo usuário
+            let valor = document.getElementById('inputNumero').value;
+            // Verificar se o valor é um número válido
+            if (isNaN(valor) || valor.trim() === '') {
+                document.getElementById('mensagemErro').innerHTML = 'Por favor, insira um número válido.';
+                return;
+            }
+            valor = parseInt(valor);
+
+            // Validação de número negativo
+            if (valor < 2) {
+                document.getElementById('mensagemErro').innerHTML = 'Por favor, insira um número maior que 1 para gerar números primos.';
+                return;
+            }
+            let primos = [];
+            // Calcular os números primos
+            for (let i = 2; i <= valor; i++) {
+                if (ePrimo(i)) {
+                    primos.push(i);
+                }
+            }
+
+            // Exibir os números primos
+            const saida = document.getElementById('saida');
+            if (primos.length > 0) {
+                primos.forEach(function(primo) {
+                    saida.innerHTML += primo + '<br>';
+                });
+            } else {
+                saida.innerHTML = 'Nenhum número primo encontrado.';
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <h1>Gerador de Primos</h1>
+    <label for="inputNumero">Digite um número:</label>
+    <input type="text" id="inputNumero" placeholder="Ex: 50">
+    <div class="error" id="mensagemErro"></div>
+    <button id="btnGeraPrimos" onclick="gerarPrimos()">Gerar Primos</button>
+    <div class="output" id="saida"></div>
+</div>
+</body>
+</html>
