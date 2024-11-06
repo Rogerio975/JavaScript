@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem</title>
+</head>
+<body>
+    <h1>Contador</h1>
+    <div id="container"></div>
+</body>
+<script>
+    let contador = document.querySelector("#container");
+// Contador 10 vezes a palavra "Olá!".
+    for (let i = 0; i < 10; i++) {
+        setTimeout(function() {
+            contador.innerHTML += "Olá!<br>";
+        }, i * 200); // Define um intervalo de 200ms entre cada "Olá!"
+        console.log("Fim da contagem!");
+    }
+
+    // Exibe "Fim da contagem" após o loop
+    setTimeout(function() {
+        contador.innerHTML += "<strong><br>Fim da contagem</strong>";
+    }, 10 * 200); // 10 * 200ms para esperar o último "Olá!" ser exibido
+</script>
+</html>
