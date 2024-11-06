@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contagem</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Contador</h1>
     <label for="loopCount">Digite a quantidade de loops:</label>
     <input type="number" id="loopCount" min="1">
-    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+    <button class="button" onclick="iniciarContagem()">Iniciar Contagem</button>
+    <button class="button" onclick="limparContagem()">Limpar</button>
     <div id="container"></div>
-    <link rel="stylesheet" href="style.css">
 </body>
 <script>
     // Função para iniciar a contagem
@@ -46,5 +47,11 @@
             iniciarContagem();
         }
     });
+
+    // Função para limpar o campo de entrada e o container
+    function limparContagem() {
+        document.querySelector("#loopCount").value = "";
+        document.querySelector("#container").innerHTML = "";
+    }
 </script>
 </html>
