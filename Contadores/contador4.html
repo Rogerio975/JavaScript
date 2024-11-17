@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem</title>
+</head>
+<body>
+    <h1>Contador</h1>
+    <label for="loopCount">Digite a quantidade de loops:</label>
+    <input type="number" id="loopCount" min="1">
+    <button onclick="iniciarContagem()">Iniciar Contagem</button>
+    <div id="container"></div>
+    <link rel="stylesheet" href="style.css">
+</body>
+<script>
+    // Função para iniciar a contagem
+    function iniciarContagem() {
+        let contador = document.querySelector("#container");
+        let loopCount = parseInt(document.querySelector("#loopCount").value);
+
+        // Limpa o conteúdo anterior
+        contador.innerHTML = "";
+
+        // Verifica se loopCount é um número válido
+        if (isNaN(loopCount) || loopCount < 1) {
+            contador.innerHTML = "Por favor, insira um número válido.";
+            return;
+        }
+
+        for (let i = 0; i < loopCount; i++) {
+            setTimeout(function() {
+                contador.innerHTML += "Olá!<br>";
+            }, i * 200); // Intervalo de 200ms entre cada "Olá!"
+        }
+
+        // Exibe "Fim da contagem" após o loop
+        setTimeout(function() {
+            contador.innerHTML += "<strong>Fim da contagem</strong>";
+        }, loopCount * 200); // Espera o último "Olá!" antes de exibir "Fim da contagem"
+    }
+
+    // Adiciona um evento de escuta ao input para detectar a tecla Enter
+    document.querySelector("#loopCount").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            iniciarContagem();
+        }
+    });
+</script>
+</html>
