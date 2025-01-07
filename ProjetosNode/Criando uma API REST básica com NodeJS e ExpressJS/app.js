@@ -22,7 +22,7 @@ const users = [
     { id: 3, name: 'Júlia' },
     { id: 4, name: 'Antônio' },
     { id: 5, name: 'Marta' },
-    { id: 5, name: 'Lúcia' }
+    { id: 6, name: 'Lúcia' }
 ];
 
 app.get('/users', (req, res) => {
