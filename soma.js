@@ -6,7 +6,7 @@ output: process.stdout
 
 let numbers = [];
 function askNumber(count) {
-if (count > 3) {
+if (count > 4) {
     const sum = numbers.reduce((a, b) => a + b, 0);
     console.log(`A soma dos três números é: ${sum}`);
     readline.close();
