@@ -32,7 +32,7 @@ function exibirDataHora() {
     const diaSemana = diaDaSemanaTexto(agora.getDay());
     const dataHora = agora.toLocaleString('pt-BR');
     const saudacao = saudacaoPorHorario();
-    document.getElementById('datetime').innerHTML = `${diaSemana}<br>${dataHora}<br>${saudacao}!`;
+    document.getElementById('datetime').innerHTML = `${diaSemana}, ${dataHora}<br>${saudacao}!`;
 }
 
 setInterval(exibirDataHora, 1000);
