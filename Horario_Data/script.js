@@ -14,11 +14,25 @@ function saudacaoPorHorario() {
     return saudacao;
 }
 
+function diaDaSemanaTexto(dia) {
+    const dias = [
+        "Domingo",
+        "Segunda-feira",
+        "Terça-feira",
+        "Quarta-feira",
+        "Quinta-feira",
+        "Sexta-feira",
+        "Sábado"
+    ];
+    return dias[dia];
+}
+
 function exibirDataHora() {
     const agora = new Date();
+    const diaSemana = diaDaSemanaTexto(agora.getDay());
     const dataHora = agora.toLocaleString('pt-BR');
     const saudacao = saudacaoPorHorario();
-    document.getElementById('datetime').innerHTML = `${dataHora}<br>${saudacao}!`;
+    document.getElementById('datetime').innerHTML = `${diaSemana}<br>${dataHora}<br>${saudacao}!`;
 }
 
 setInterval(exibirDataHora, 1000);
