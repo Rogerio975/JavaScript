@@ -14,9 +14,20 @@
         const socket = io();
 
         function enviarMensagem() {
-            const msg = document.getElementById("mensagem").value;
-            socket.emit("mensagem", msg);
+            const input = document.getElementById("mensagem");
+            const msg = input.value;
+            if (msg.trim() !== "") {
+                socket.emit("mensagem", msg);
+                input.value = ""; // Limpa o campo após enviar
+            }
         }
+
+        // Permite enviar com Enter
+        document.getElementById("mensagem").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                enviarMensagem();
+            }
+        });
 
         socket.on("mensagem", (msg) => {
             const item = document.createElement("li");
