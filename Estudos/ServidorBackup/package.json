@@ -1,0 +1,13 @@
+{
+  "name": "servidor-backup",
+  "version": "1.0.0",
+  "description": "Servidor de backup em Node.js para upload, download, listagem e remoção de arquivos via API REST.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^2.0.1"
+  }
+}
