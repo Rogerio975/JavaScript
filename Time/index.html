@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudação Dinâmica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="greeting-message"></h1>
+
+    <script>
+        // Pega a hora atual
+        const now = new Date();
+        const hour = now.getHours();
+
+        let greeting;
+
+        // Determina a saudação com base na hora
+        if (hour >= 6 && hour < 12) {
+            greeting = "Bom dia!";
+        } else if (hour >= 12 && hour < 18) {
+            greeting = "Boa tarde!";
+        } else {
+            greeting = "Boa noite!";
+        }
+
+        // Encontra o elemento com o ID "greeting-message"
+        const greetingElement = document.getElementById("greeting-message");
+
+        // Insere a saudação dentro do elemento
+        greetingElement.textContent = greeting;
+    </script>
+
+</body>
+</html>
