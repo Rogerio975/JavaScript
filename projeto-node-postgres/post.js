@@ -1,4 +1,4 @@
-import { query } from './db';
+const pool = require('./db');
 
 async function inserirUsuario() {
 
@@ -9,7 +9,7 @@ async function inserirUsuario() {
 
     const valores = ['Júlia', 'julia@email.com'];
 
-    await query(sql, valores);
+    await pool.query(sql, valores);
 
     console.log('Usuário inserido!');
 }
