@@ -6,7 +6,8 @@ async function criarTabela() {
         CREATE TABLE IF NOT EXISTS usuarios (
             id SERIAL PRIMARY KEY,
             nome VARCHAR(100),
-            email VARCHAR(100)
+            email VARCHAR(100),
+            data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     `;
 
