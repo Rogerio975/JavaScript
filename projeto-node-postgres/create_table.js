@@ -1,4 +1,4 @@
-const pool = require('./db');
+import { query } from './db';
 
 async function criarTabela() {
 
@@ -10,7 +10,7 @@ async function criarTabela() {
         )
     `;
 
-    await pool.query(sql);
+    await query(sql);
 
     console.log('Tabela criada!');
 }
