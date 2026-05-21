@@ -3,6 +3,10 @@ const pool = require('./db');
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('Rota / ativa');
+});
+
 app.get('/usuarios', async (req, res) => {
 
     const resultado = await pool.query(
