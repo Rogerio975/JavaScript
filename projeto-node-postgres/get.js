@@ -1,8 +1,8 @@
-import { query } from './db';
+const pool = require('./db');
 
 async function listarUsuarios() {
 
-    const resultado = await query(
+    const resultado = await pool.query(
         'SELECT * FROM usuarios'
     );
 

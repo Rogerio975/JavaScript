@@ -1,17 +1,31 @@
-import { query } from './db';
+const pool = require('./db');
 
-async function inserirUsuario() {
+async function adicionarUsuario() {
 
-    const sql = `
-        INSERT INTO usuarios (nome, email)
-        VALUES ($1, $2)
-    `;
+    try {
 
-    const valores = ['Júlia', 'julia@email.com'];
+        const sql =
+            'INSERT INTO usuarios (nome, email) VALUES ($1, $2) RETURNING *';
 
-    await query(sql, valores);
+        const valores = [
+            'Nadjane',
+            'nadjane@email.com'
+        ];
 
-    console.log('Usuário inserido!');
+        const resultado =
+            await pool.query(sql, valores);
+
+        console.log('Usuário adicionado!');
+        console.log(resultado.rows[0]);
+
+    } catch (erro) {
+
+        console.error(erro);
+
+    } finally {
+
+        await pool.end();
+    }
 }
 
-inserirUsuario();
+adicionarUsuario();
