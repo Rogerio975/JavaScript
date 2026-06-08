@@ -10,6 +10,8 @@
         button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
         button:hover { background: #0056b3; }
         #resultado { margin-top: 20px; font-weight: bold; color: #333; text-align: center; }
+        h3 { text-align: center; color: #333; }
+        label { display: block; text-align: center; color: #333; }
     </style>
 </head>
 <body>
@@ -17,7 +19,7 @@
 <div class="card">
     <h3>Calculadora de Idade</h3>
     <label for="nascimento">Data de Nascimento:</label>
-    <input type="date" id="nascimento">
+    <input type="date" id="nascimento" onkeypress="if(event.key==='Enter') exibirIdade()">
     <button onclick="exibirIdade()">Calcular Idade</button>
     <div id="resultado"></div>
 </div>
