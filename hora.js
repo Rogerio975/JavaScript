@@ -5,7 +5,6 @@ const hora = () => {
   const seconds = date.getSeconds();
   return `${hours}:${minutes}:${seconds}`;
 };
-
 console.log(hora());
 
 const agora = new Date();
