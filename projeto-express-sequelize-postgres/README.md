@@ -12,7 +12,7 @@
 No PostgreSQL, crie o banco:
 
 ```sql
-CREATE DATABASE "Supermercado";
+CREATE DATABASE "Supermercado" WITH ENCODING 'UTF8';
 ```
 
 ## 3. Instalar dependências
