@@ -1,1 +1,1 @@
-CREATE DATABASE "Supermercado";
+CREATE DATABASE "Supermercado" WITH ENCODING 'UTF8';
