@@ -25,9 +25,9 @@ exports.buscarPorId = async (req, res) => {
 
 exports.criar = async (req, res) => {
   try {
-    const { nome, email } = req.body;
+    const { nome, email, senha } = req.body;
 
-    const usuario = await Usuario.create({ nome, email });
+    const usuario = await Usuario.create({ nome, email, senha });
 
     res.status(201).json(usuario);
   } catch (error) {
@@ -54,8 +54,14 @@ exports.atualizar = async (req, res) => {
       return res.status(404).json({ erro: 'Usuário não encontrado.' });
     }
 
-    const { nome, email } = req.body;
-    await usuario.update({ nome, email });
+    const { nome, email, senha } = req.body;
+    const atualizacao = { nome, email };
+
+    if (senha !== undefined) {
+      atualizacao.senha = senha;
+    }
+
+    await usuario.update(atualizacao);
 
     res.json(usuario);
   } catch (error) {
